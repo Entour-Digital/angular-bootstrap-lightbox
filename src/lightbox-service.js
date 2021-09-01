@@ -267,7 +267,7 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
       }, modalParams || {}));
 
       // modal close handler
-      Lightbox.modalInstance.result['finally'](function () {
+      Lightbox.modalInstance.result.finally(function () {
         // prevent the lightbox from flickering from the old image when it gets
         // opened again
         Lightbox.images = [];
@@ -282,7 +282,7 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         if (cfpLoadingBar) {
           cfpLoadingBar.complete();
         }
-      });
+      }).then(function() {}, function() {});
 
       return Lightbox.modalInstance;
     };
